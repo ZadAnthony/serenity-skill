@@ -1,10 +1,10 @@
 # Serenity 投资分析 Skill
 
-把投资人 **Serenity（X / Twitter [@aleabitoreddit](https://x.com/aleabitoreddit)）** 的 **"供应链卡点逆向"投资逻辑和方法论操作化**的 [Claude Code](https://docs.claude.com/en/docs/claude-code) Skill —— 不是模仿他说话，而是用他**怎么提问、怎么排除、怎么把热闹拆成可验证环节**的方式，帮你分析一只票 / 一个板块 / 一个 thesis。
+把投资人 **Serenity（X / Twitter [@aleabitoreddit](https://x.com/aleabitoreddit)）** 的 **"供应链卡点逆向"投资逻辑和方法论操作化**的**可移植 Agent Skill** —— 不是模仿他说话，而是用他**怎么提问、怎么排除、怎么把热闹拆成可验证环节**的方式，帮你分析一只票 / 一个板块 / 一个 thesis。
 
 适用：美股 / AI 供应链 / 光模块（CPO·硅光·InP）/ 半导体 / 内存 / NeoCloud / 电力液冷 / 机器人等投资分析。
 
-> An operationalized Claude Code Skill that turns the **"reverse-engineer the supply-chain bottleneck"** investing methodology of **Serenity ([@aleabitoreddit](https://x.com/aleabitoreddit))** into a repeatable analysis engine for US equities / the AI infrastructure supply chain. It models *how he frames questions and disqualifies ideas*, not his voice.
+> An operationalized, portable Agent Skill that turns the **"reverse-engineer the supply-chain bottleneck"** investing methodology of **Serenity ([@aleabitoreddit](https://x.com/aleabitoreddit))** into a repeatable analysis engine for US equities / the AI infrastructure supply chain. It models *how he frames questions and disqualifies ideas*, not his voice.
 
 ---
 
@@ -20,21 +20,18 @@
 
 ## 安装 / Install
 
-这是一个**可移植的 Agent Skill**（开放的 `SKILL.md` 格式）——核心就是 `SKILL.md` + `methodology.md` 两个指令文件。**任何能加载 Agent Skill、或把指令作为上下文的 agent runtime 都能用**，[Claude Code](https://docs.claude.com/en/docs/claude-code) 只是其中一个 host（Claude Agent SDK、claude.ai、以及其它支持 Skills 格式的 agent 工具同样可用，安装与触发方式按各自约定）。
+这是一个**可移植的 Agent Skill**（开放的 `SKILL.md` 格式）——核心就是 `SKILL.md` + `methodology.md` 两个指令文件。**任何支持 Agent Skills、或能把指令作为上下文加载的 agent runtime 都能用**，安装与触发方式按各自约定。
 
-以 Claude Code 为例，克隆到它的 skills 目录即可：
+安装 = 把这两个文件放进你的 runtime 加载 skill 的目录，例如克隆本仓库：
 
 ```bash
-# 用户级（所有项目可用）
-git clone https://github.com/ZadAnthony/serenity-skill.git ~/.claude/skills/serenity
-
-# 或项目级（仅当前项目）
-git clone https://github.com/ZadAnthony/serenity-skill.git <你的项目>/.claude/skills/serenity
+git clone https://github.com/ZadAnthony/serenity-skill.git <你的 runtime 的 skills 目录>/serenity
+# 路径按各 runtime 约定（有的放 ~/.claude/skills/、有的放项目内 skills 目录，按你工具的文档来）
 ```
 
-克隆后新开会话，输入 `/serenity` 即可调用（聊到相关板块也会自动触发）。**其它 runtime**：把这两个文件放进它的 skill 目录、或作为系统指令 / 上下文加载即可，触发方式按该 runtime 约定。
+放好后按你 runtime 的方式调用：支持 Skills 自动发现的，输入 `/serenity` 或聊到相关板块即触发；其它情况把这两个文件作为系统指令 / 上下文加载即可。
 
-更新：`cd ~/.claude/skills/serenity && git pull`。
+更新：进入克隆目录 `git pull`。
 
 ## 用法 / Usage
 
@@ -52,7 +49,7 @@ git clone https://github.com/ZadAnthony/serenity-skill.git <你的项目>/.claud
 | `SKILL.md` | Skill 入口：核心立场、输出契约、分析流水线、各步判据 |
 | `methodology.md` | 完整知识底座（9 节，由 2071 条公开推文自底向上提炼 + 反向校验加固） |
 
-Skill 自包含，只依赖这两个文件、不捆绑任何数据集。两点 host 能力会影响完整度（都不是 Claude Code 专属）：① 要产出准确报告需 host 具备**联网 / 检索**能力（按取数纪律拉实时财务 / 市值）；② "最后一步独立复核"在支持**子 agent** 的 runtime 上跑独立 reviewer，不支持时按内置降级路径自查并显式标注。
+Skill 自包含，只依赖这两个文件、不捆绑任何数据集。两点 host 能力会影响完整度（都不限某个特定 runtime）：① 要产出准确报告需 host 具备**联网 / 检索**能力（按取数纪律拉实时财务 / 市值）；② "最后一步独立复核"在支持**子 agent** 的 runtime 上跑独立 reviewer，不支持时按内置降级路径自查并显式标注。
 
 ## License
 
