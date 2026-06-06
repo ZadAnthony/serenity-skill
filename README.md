@@ -1,6 +1,6 @@
 # Serenity 投资分析 Skill
 
-把投资人 **Serenity（X / Twitter [@aleabitoreddit](https://x.com/aleabitoreddit)）** 的 **"供应链卡点逆向"投资逻辑和方法论操作化**的**可移植 Agent Skill** —— 不是模仿他说话，而是用他**怎么提问、怎么排除、怎么把热闹拆成可验证环节**的方式，帮你分析一只票 / 一个板块 / 一个 thesis。
+把投资人 **Serenity（X / Twitter [@aleabitoreddit](https://x.com/aleabitoreddit)）** 的"供应链卡点逆向"投资逻辑和方法论操作化的**可移植 Agent Skill** —— 不是模仿他说话，而是用他**怎么提问、怎么排除、怎么把热闹拆成可验证环节**的方式，帮你分析一只票 / 一个板块 / 一个 thesis。
 
 适用：美股 / AI 供应链 / 光模块（CPO·硅光·InP）/ 半导体 / 内存 / NeoCloud / 电力液冷 / 机器人等投资分析。
 
