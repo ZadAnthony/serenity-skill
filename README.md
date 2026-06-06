@@ -20,7 +20,9 @@
 
 ## 安装 / Install
 
-需要 [Claude Code](https://docs.claude.com/en/docs/claude-code)。把本仓库克隆到 Claude Code 的 skills 目录即可：
+这是一个**可移植的 Agent Skill**（开放的 `SKILL.md` 格式）——核心就是 `SKILL.md` + `methodology.md` 两个指令文件。**任何能加载 Agent Skill、或把指令作为上下文的 agent runtime 都能用**，[Claude Code](https://docs.claude.com/en/docs/claude-code) 只是其中一个 host（Claude Agent SDK、claude.ai、以及其它支持 Skills 格式的 agent 工具同样可用，安装与触发方式按各自约定）。
+
+以 Claude Code 为例，克隆到它的 skills 目录即可：
 
 ```bash
 # 用户级（所有项目可用）
@@ -30,7 +32,7 @@ git clone https://github.com/ZadAnthony/serenity-skill.git ~/.claude/skills/sere
 git clone https://github.com/ZadAnthony/serenity-skill.git <你的项目>/.claude/skills/serenity
 ```
 
-克隆后新开一个 Claude Code 会话，输入 `/serenity` 即可调用（聊到相关板块也会自动触发）。
+克隆后新开会话，输入 `/serenity` 即可调用（聊到相关板块也会自动触发）。**其它 runtime**：把这两个文件放进它的 skill 目录、或作为系统指令 / 上下文加载即可，触发方式按该 runtime 约定。
 
 更新：`cd ~/.claude/skills/serenity && git pull`。
 
@@ -50,7 +52,7 @@ git clone https://github.com/ZadAnthony/serenity-skill.git <你的项目>/.claud
 | `SKILL.md` | Skill 入口：核心立场、输出契约、分析流水线、各步判据 |
 | `methodology.md` | 完整知识底座（9 节，由 2071 条公开推文自底向上提炼 + 反向校验加固） |
 
-Skill 自包含，运行只依赖这两个文件，不读取任何外部数据。
+Skill 自包含，只依赖这两个文件、不捆绑任何数据集。两点 host 能力会影响完整度（都不是 Claude Code 专属）：① 要产出准确报告需 host 具备**联网 / 检索**能力（按取数纪律拉实时财务 / 市值）；② "最后一步独立复核"在支持**子 agent** 的 runtime 上跑独立 reviewer，不支持时按内置降级路径自查并显式标注。
 
 ## License
 
